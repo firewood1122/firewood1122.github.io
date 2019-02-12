@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://blog.smallpig.cn">
-  <title>firewood的技术博客</title>
+  <title>React Native修改APP名称及图标 | firewood的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="firewood的技术博客">
-<meta property="og:url" content="http://blog.smallpig.cn/page/4/index.html">
+  <meta name="description" content="生成图标通过图标工场, 在线生成所有尺寸的应用图标，下载并解压 Android修改APP名称编辑项目文件：android/app/src/main/res/values/strings.xml，修改app_name 123&amp;lt;resources&amp;gt;    &amp;lt;string name=&quot;app_name&quot;&amp;gt;熊猫陈皮&amp;lt;/string&amp;gt;&amp;lt;/resources&amp;gt;">
+<meta name="keywords" content="前端框架">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React Native修改APP名称及图标">
+<meta property="og:url" content="http://blog.smallpig.cn/2019/02/12/front-rn-app-icon/index.html">
 <meta property="og:site_name" content="firewood的技术博客">
+<meta property="og:description" content="生成图标通过图标工场, 在线生成所有尺寸的应用图标，下载并解压 Android修改APP名称编辑项目文件：android/app/src/main/res/values/strings.xml，修改app_name 123&amp;lt;resources&amp;gt;    &amp;lt;string name=&quot;app_name&quot;&amp;gt;熊猫陈皮&amp;lt;/string&amp;gt;&amp;lt;/resources&amp;gt;">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-02-12T09:52:19.564Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="firewood的技术博客">
+<meta name="twitter:title" content="React Native修改APP名称及图标">
+<meta name="twitter:description" content="生成图标通过图标工场, 在线生成所有尺寸的应用图标，下载并解压 Android修改APP名称编辑项目文件：android/app/src/main/res/values/strings.xml，修改app_name 123&amp;lt;resources&amp;gt;    &amp;lt;string name=&quot;app_name&quot;&amp;gt;熊猫陈皮&amp;lt;/string&amp;gt;&amp;lt;/resources&amp;gt;">
   
     <link rel="alternative" href="/atom.xml" title="firewood的技术博客" type="application/atom+xml">
   
@@ -148,106 +153,34 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-front-css-print" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+            <article id="post-front-rn-app-icon" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/10/front-css-print/">css设置打印分页</a>
+    <h1 class="article-title" itemprop="name">
+      React Native修改APP名称及图标
     </h1>
   
 
         
-        <a href="/2016/05/10/front-css-print/" class="archive-article-date">
-  	<time datetime="2016-05-10T12:55:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-05-10</time>
+        <a href="/2019/02/12/front-rn-app-icon/" class="archive-article-date">
+  	<time datetime="2019-02-12T09:06:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="如何打印特定区域内容"><a href="#如何打印特定区域内容" class="headerlink" title="如何打印特定区域内容"></a>如何打印特定区域内容</h3><p><strong>html dom结构</strong><br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div_print"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span> <span class="attr">style</span>=<span class="string">"color:red; page-break-after:always;"</span>&gt;</span>The Div content which you want to print<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span> <span class="attr">style</span>=<span class="string">"color:red;"</span>&gt;</span>The Div content which you want to print<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span> <span class="attr">style</span>=<span class="string">"color:red; page-break-before:always;"</span>&gt;</span>The Div content which you want to print<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p><strong>打印内容的javascript代码</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">printdiv</span>(<span class="params">printpage</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> headstr = <span class="string">"&lt;html&gt;&lt;head&gt;&lt;title&gt;&lt;/title&gt;&lt;/head&gt;&lt;body&gt;"</span>;</span><br><span class="line">    <span class="keyword">var</span> footstr = <span class="string">"&lt;/body&gt;"</span>;</span><br><span class="line">    <span class="keyword">var</span> newstr = <span class="built_in">document</span>.all.item(printpage).innerHTML;</span><br><span class="line">    <span class="keyword">var</span> oldstr = <span class="built_in">document</span>.body.innerHTML;</span><br><span class="line">    <span class="built_in">document</span>.body.innerHTML = headstr + newstr + footstr;</span><br><span class="line">    <span class="built_in">window</span>.print();</span><br><span class="line">    <span class="built_in">document</span>.body.innerHTML = oldstr;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><strong>触发打印操作的按钮</strong><br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">"b_print"</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"ipt"</span> <span class="attr">onClick</span>=<span class="string">"printdiv('div_print');"</span> <span class="attr">value</span>=<span class="string">" Print "</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p><strong>设置分页css说明</strong></p>
-<ul>
-<li>page-break-before：后置分页符</li>
-<li>page-break-after：前置分页符</li>
-</ul>
-<p>可以设置的值：</p>
-<ul>
-<li>auto 默认，如果必要则在元素后插入分页符。</li>
-<li>always 在元素后插入分页符。</li>
-<li>avoid 避免在元素后插入分页符。</li>
-<li>left 在元素之后足够的分页符，一直到一张空白的左页为止。</li>
-<li>right 在元素之后足够的分页符，一直到一张空白的右页为止。</li>
-<li>inherit 规定应该从父元素继承 page-break-after 属性的设置。</li>
-</ul>
-<h3 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h3><ul>
-<li><a href="http://blog.csdn.net/savagelin/article/details/6589965" target="_blank" rel="noopener">http://blog.csdn.net/savagelin/article/details/6589965</a></li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">基础知识</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-front-ant-design" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/05/front-ant-design/">初探 ant design</a>
-    </h1>
-  
-
-        
-        <a href="/2016/05/05/front-ant-design/" class="archive-article-date">
-  	<time datetime="2016-05-05T03:45:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-05-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1><ul>
-<li><a href="http://ant.design/docs/spec/introduce" target="_blank" rel="noopener">http://ant.design/docs/spec/introduce</a></li>
-<li><a href="https://segmentfault.com/a/1190000003789022?_ea=380891" target="_blank" rel="noopener">https://segmentfault.com/a/1190000003789022?_ea=380891</a></li>
-</ul>
+        <h3 id="生成图标"><a href="#生成图标" class="headerlink" title="生成图标"></a>生成图标</h3><p>通过<a href="https://icon.wuruihong.com/" target="_blank" rel="noopener">图标工场</a>, 在线生成所有尺寸的应用图标，下载并解压</p>
+<h3 id="Android修改APP名称"><a href="#Android修改APP名称" class="headerlink" title="Android修改APP名称"></a>Android修改APP名称</h3><p>编辑项目文件：android/app/src/main/res/values/strings.xml，修改app_name</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"app_name"</span>&gt;</span>熊猫陈皮<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Android修改APP图标"><a href="#Android修改APP图标" class="headerlink" title="Android修改APP图标"></a>Android修改APP图标</h3><p>使用生成的图标覆盖android/app/src/main/res中的图标目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- res</span><br><span class="line">-- mipmap-hdpi</span><br><span class="line">-- mipmap-ldpi</span><br><span class="line">-- mipmap-mdpi</span><br><span class="line">-- mipmap-xhdpi</span><br><span class="line">-- mipmap-xxhdpi</span><br><span class="line">-- mipmap-xxxhdpi</span><br></pre></td></tr></table></figure>
+<h3 id="IOS修改APP名称"><a href="#IOS修改APP名称" class="headerlink" title="IOS修改APP名称"></a>IOS修改APP名称</h3><p>编加项目文件：ios/{应用目录}/Info.plist，修改CFBundleDisplayName</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">key</span>&gt;</span>CFBundleDisplayName<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">string</span>&gt;</span>熊猫陈皮<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="IOS修改APP图标"><a href="#IOS修改APP图标" class="headerlink" title="IOS修改APP图标"></a>IOS修改APP图标</h3><p>使用生成的图标覆盖ios/{应用目录}/Images.xcassets中的图标目录</p>
 
       
 
@@ -272,619 +205,72 @@ var _hmt = _hmt || [];
       
 
       
-      <div class="clearfix"></div>
-    </div>
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
   </div>
-</article>
+</div>
 
-
-
-
-
-  
-    <article id="post-server-jenkins-start" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/27/server-jenkins-start/">持续集成-jenkins使用介绍</a>
-    </h1>
-  
-
-        
-        <a href="/2016/04/27/server-jenkins-start/" class="archive-article-date">
-  	<time datetime="2016-04-27T01:36:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-04-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="持续集成与jenkins"><a href="#持续集成与jenkins" class="headerlink" title="持续集成与jenkins"></a>持续集成与jenkins</h2><blockquote>
-<p>持续集成是为了配合敏捷开发的速度和效率而产生的一个用于编译、测试、发布、部署的工具<br>为什么叫持续呢？其实就是编码人员提交了源码，该工具就可以进行编译，测试等一系列运作<br>Jenkins是基于Java开发的一种持续集成工具，用于监控持续重复的工作</p>
-</blockquote>
-<p>下面就如何在jenkins上构建job，描述一下具体的流程：</p>
-<h3 id="创建构建job"><a href="#创建构建job" class="headerlink" title="创建构建job"></a>创建构建job</h3><p>进入jenkins系统后，点击左上方的Jenkins菜单，选择新建：<br><img src="/img/data/20170628_1720.png" alt=""></p>
-        
-          <a class="article-more-a" href="/2016/04/27/server-jenkins-start/#more">more >></a>
-        
-      
-
-      
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://blog.smallpig.cn/2019/02/12/front-rn-app-icon/" alt="微信分享二维码">
     </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">服务端工具</a>
-        		</li>
-      		
-		</ul>
-	</div>
+</div>
 
-      
-
-      
-
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
 
-
-
-
-
   
-    <article id="post-front-chrome-password" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/25/front-chrome-password/">解决chrome浏览器保存密码的问题</a>
-    </h1>
   
-
-        
-        <a href="/2016/04/25/front-chrome-password/" class="archive-article-date">
-  	<time datetime="2016-04-25T07:53:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-04-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="问题背景"><a href="#问题背景" class="headerlink" title="问题背景"></a>问题背景</h3><p>chrome浏览器，登录表单保存时，浏览器会弹出是否保存密码，如果选择保存密码，<br>再次打开表单时，会默认填入保存的帐号密码，会导致页面交互出现问题。</p>
-<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>解决方案很简单，在页面增加可见的类型为password的input，就可以解决默认填入保存的<br>帐号密码的问题：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">value</span>=<span class="string">""</span> /&gt;</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h3><p>增加的input必须为可见的节点，不能使用 display: none 进行隐藏，可以使用绝对定位进行优化：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">value</span>=<span class="string">""</span> <span class="attr">style</span>=<span class="string">"position:absolute; left:-99999px;"</span> /&gt;</span></span><br></pre></td></tr></table></figure></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">基础知识</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
+    <a href="/2018/12/30/front-npm-publish/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">创建&amp;发布npm包</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
-    <article id="post-navigation" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/23/navigation/">本站导航</a>
-    </h1>
-  
-
-        
-        <a href="/2016/04/23/navigation/" class="archive-article-date">
-  	<time datetime="2016-04-23T11:56:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-04-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="前端基础知识"><a href="#前端基础知识" class="headerlink" title="前端基础知识"></a>前端基础知识</h3><ul>
-<li><a href="/2016/04/25/front-chrome-password/">解决chrome浏览器保存密码的问题</a></li>
-<li><a href="/2017/02/13/front-chrome-timeline/">Chome浏览器Timeline工具的使用</a></li>
-<li><a href="/2016/04/19/server-facebook/">facebook联合登录</a></li>
-<li><a href="/2016/07/06/front-base-wap/">移动端性能优化</a></li>
-<li><a href="/2016/12/29/front-cdn/">CDN网络原理</a></li>
-<li><a href="/2017/01/24/front-dramatize-base/">WEBKIT渲染原理</a></li>
-</ul>
-<h5 id="css基础知识"><a href="#css基础知识" class="headerlink" title="css基础知识"></a>css基础知识</h5><ul>
-<li><a href="/2016/04/06/front-logo/">解决logo图片在浏览器上模糊的问题</a></li>
-<li><a href="/2016/05/10/front-css-print/">css设置打印分页</a></li>
-</ul>
-<h5 id="javascript基础知识"><a href="#javascript基础知识" class="headerlink" title="javascript基础知识"></a>javascript基础知识</h5><ul>
-<li><a href="/2016/10/13/front-js-value/">聊一聊javascript的传值方式</a></li>
-<li><a href="/2016/05/24/front-js-utm/">js获取GMT时区</a></li>
-<li><a href="/2016/06/13/front-js-timestamp/">跨时区与timestamp</a></li>
-<li><a href="/2016/04/06/server-cookie-setting/">解决跨域的cookie读写问题</a></li>
-<li><a href="/2016/06/13/server-cookie/">cookie的读与写</a></li>
-<li><a href="/2016/04/14/front-canvas/">利用canvas爬取网站图片</a></li>
-<li><a href="/2016/09/05/front-chrome-extend/">如何打造你的chrome扩展</a></li>
-</ul>
-<h5 id="React-Native基础知识"><a href="#React-Native基础知识" class="headerlink" title="React Native基础知识"></a>React Native基础知识</h5><ul>
-<li><a href="/2019/02/12/front-rn-app-icon/">React Native修改APP名称及图标</a></li>
-</ul>
-<h3 id="ui框架"><a href="#ui框架" class="headerlink" title="ui框架"></a>ui框架</h3><ul>
-<li><a href="/2016/04/05/front-semantic-ui/">Semantic - UI使用</a></li>
-<li><a href="/2016/05/05/front-ant-design/">初探 ant design</a></li>
-</ul>
-<h3 id="javascript框架"><a href="#javascript框架" class="headerlink" title="javascript框架"></a>javascript框架</h3><ul>
-<li><a href="/2016/04/06/front-ejs/">ejs使用总结</a></li>
-</ul>
-<h3 id="node-js"><a href="#node-js" class="headerlink" title="node.js"></a>node.js</h3><ul>
-<li><a href="/2018/12/30/front-npm-publish/">创建&amp;发布npm包</a></li>
-<li><a href="/2016/04/22/server-node-npm/">npm使用总结</a></li>
-<li><a href="/2016/04/08/front-gulp/">gulp使用教程</a></li>
-<li><a href="/2016/11/08/server-node-mem/">node.js的内存管理机制</a></li>
-<li><a href="/2016/06/17/server-node-file/">node与文件操作</a></li>
-<li><a href="/2016/08/10/server-node-mysql/">如何在node.js调用mysql</a></li>
-<li><a href="/2016/11/02/server-http-proxy/">http-proxy使用详解</a></li>
-<li><a href="/2017/01/22/server-node-yield/">node异步编程 - Generator入门</a></li>
-<li><a href="/2018/10/15/server-log4js/">使用log4js记录nodejs服务日志</a></li>
-</ul>
-<h3 id="服务端基础知识"><a href="#服务端基础知识" class="headerlink" title="服务端基础知识"></a>服务端基础知识</h3><ul>
-<li><a href="/2017/02/15/server-http/">浅析HTTP协议</a></li>
-</ul>
-<h3 id="服务端框架"><a href="#服务端框架" class="headerlink" title="服务端框架"></a>服务端框架</h3><ul>
-<li><a href="/2016/03/29/server-express-start/">初始化express框架</a></li>
-</ul>
-<h3 id="服务端工具"><a href="#服务端工具" class="headerlink" title="服务端工具"></a>服务端工具</h3><ul>
-<li><a href="/2016/02/26/server-nginx/">nginx使用总结</a></li>
-<li><a href="/2016/11/24/server-nginx-redirect/">使用nginx实现PC端及移动端的页面跳转</a></li>
-<li><a href="/2016/08/02/server-redis/">如何安装使用redis</a></li>
-<li><a href="/2016/12/07/server-domain-config/">github pages配置独立域名</a></li>
-<li><a href="/2017/01/05/front-postman/">Postman用法简介</a></li>
-<li><a href="/2017/06/15/server-linux-fdisk/">Linux下添加新分区及挂载</a></li>
-<li><a href="/2016/04/27/server-jenkins-start/">持续集成-jenkins使用介绍</a></li>
-<li><a href="/2016/06/21/server-jenkins-safe/">持续集成-jenkins的安全策略</a></li>
-<li><a href="/2017/06/02/server-docker-start/">Docker-Docker简介</a></li>
-<li><a href="/2017/07/18/server-docker-machine/">Docker-通过Docker Machine运行docker容器</a></li>
-</ul>
-<h3 id="自动化测试"><a href="#自动化测试" class="headerlink" title="自动化测试"></a>自动化测试</h3><ul>
-<li><a href="/2016/04/17/server-node-phantom/">自动化测试 - phantom.js</a></li>
-<li><a href="/2016/04/20/front-test-page-monitor/">自动化测试 - page-monitor</a></li>
-<li><a href="/2016/04/20/front-test-casperjs/">自动化测试 - CasperJS</a></li>
-<li><a href="/2016/04/22/front-test-nightmare/">自动化测试 - Nightmare</a></li>
-</ul>
-<h3 id="支撑工具类"><a href="#支撑工具类" class="headerlink" title="支撑工具类"></a>支撑工具类</h3><ul>
-<li><a href="/2016/03/01/server-rap/">使用RAP模拟数据服务</a></li>
-<li><a href="/2016/10/10/server-git-base/">使用git进行版本管理</a></li>
-<li><a href="/2016/04/06/server-markdown/">Markdown语法简介</a></li>
-<li><a href="/2016/11/29/server-hexo/">使用hexo搭建团队blog</a></li>
-</ul>
-<h3 id="工作心得"><a href="#工作心得" class="headerlink" title="工作心得"></a>工作心得</h3><ul>
-<li><a href="/2016/10/18/job-tool-canuse/">如何判断一个工具是否有用</a></li>
-<li><a href="/2017/05/23/job-project-manage/">研发流程中的项目管理/分支管理</a></li>
-<li><a href="/2016/04/06/job-select-sku/">通过选择商品sku查询对应库存</a></li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">工作心得</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-front-test-nightmare" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/22/front-test-nightmare/">自动化测试-Nightmare</a>
-    </h1>
-  
-
-        
-        <a href="/2016/04/22/front-test-nightmare/" class="archive-article-date">
-  	<time datetime="2016-04-22T07:05:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-04-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h3><ul>
-<li><a href="http://www.nightmarejs.org/" target="_blank" rel="noopener">http://www.nightmarejs.org/</a></li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-server-node-npm" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/22/server-node-npm/">npm使用总结</a>
-    </h1>
-  
-
-        
-        <a href="/2016/04/22/server-node-npm/" class="archive-article-date">
-  	<time datetime="2016-04-22T07:00:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-04-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="npm配置"><a href="#npm配置" class="headerlink" title="npm配置"></a>npm配置</h3><ul>
-<li><p>设置淘宝镜像</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">registry=https://registry.npm.taobao.org/</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>设置npm翻墙</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> https-proxy http://username:pawword@server:port</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>更新npm自身</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm -g install npm@3.*</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>按版本号安装包</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g package@version</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h3><ul>
-<li><a href="http://my.oschina.net/deathdealer/blog/208919" target="_blank" rel="noopener">http://my.oschina.net/deathdealer/blog/208919</a></li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端工具</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-front-test-casperjs" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/20/front-test-casperjs/">自动化测试-CasperJS</a>
-    </h1>
-  
-
-        
-        <a href="/2016/04/20/front-test-casperjs/" class="archive-article-date">
-  	<time datetime="2016-04-20T01:37:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-04-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h3><ul>
-<li>需安装phantom.js及python</li>
-<li>npm安装capserjs<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install capserjs -g</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="运行命令"><a href="#运行命令" class="headerlink" title="运行命令"></a>运行命令</h3><ul>
-<li>命令行运行<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">casperjs --ignore-ssl-errors=<span class="literal">true</span> app.js</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="配置参数"><a href="#配置参数" class="headerlink" title="配置参数"></a>配置参数</h3><ul>
-<li><p>设置调试模式</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">verbose: <span class="literal">true</span>,</span><br><span class="line">logLevel: <span class="string">'debug'</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>处理中文乱码</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">phantom.outputEncoding = <span class="string">'GBK'</span>;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>设置超时时间</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">waitTimeout: <span class="number">5000</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>设置视窗大小</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pageSettings: &#123;</span><br><span class="line">    viewportSize: &#123; <span class="attr">width</span>: <span class="number">1920</span>, <span class="attr">height</span>: <span class="number">600</span> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="模拟动作"><a href="#模拟动作" class="headerlink" title="模拟动作"></a>模拟动作</h3><ul>
-<li>鼠标点击<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">casper.mouse.move(<span class="string">'#J_header_login_state .vhbm-account-btn i'</span>)</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="PhantomCSS"><a href="#PhantomCSS" class="headerlink" title="PhantomCSS"></a>PhantomCSS</h3><ul>
-<li><p>设置快照保存目录</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">screenshotRoot: <span class="string">'./screenshots'</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>设置对比精细度</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mismatchTolerance: <span class="number">0</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>设置差异展示样式</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">outputSettings: &#123;</span><br><span class="line">    errorColor: &#123;</span><br><span class="line">        red: <span class="number">255</span>,</span><br><span class="line">        green: <span class="number">0</span>,</span><br><span class="line">        blue: <span class="number">0</span></span><br><span class="line">    &#125;,</span><br><span class="line">    errorType: <span class="string">'movement'</span>,</span><br><span class="line">    transparency: <span class="number">0.3</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>对比所有快照</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">phantomcss.compareAll()</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>对比特定快照</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">phantomcss.compareFiles(<span class="string">'./screenshots/start_0.diff.png'</span>, <span class="string">'./screenshots/start_0.png'</span>)</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h3><ul>
-<li><a href="http://casperjs.org/" target="_blank" rel="noopener">http://casperjs.org/</a></li>
-<li><a href="https://github.com/Huddle/PhantomCSS" target="_blank" rel="noopener">https://github.com/Huddle/PhantomCSS</a></li>
-<li><a href="https://www.npmjs.com/package/phantomcss" target="_blank" rel="noopener">https://www.npmjs.com/package/phantomcss</a></li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-front-test-page-monitor" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/20/front-test-page-monitor/">自动化测试 - page-monitor</a>
-    </h1>
-  
-
-        
-        <a href="/2016/04/20/front-test-page-monitor/" class="archive-article-date">
-  	<time datetime="2016-04-20T01:33:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-04-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="PMUI缺点"><a href="#PMUI缺点" class="headerlink" title="PMUI缺点"></a>PMUI缺点</h3><ul>
-<li>不能在界面触发重新生成对比结果</li>
-<li>不能以版本为维度进行查看结果</li>
-<li>如果尺寸较大，查看对比结果较不方便</li>
-<li>基于phantom改造，对于js动态比较比较难用</li>
-</ul>
-<h3 id="调研结论"><a href="#调研结论" class="headerlink" title="调研结论"></a>调研结论</h3><ul>
-<li>适用于静态页面对比</li>
-</ul>
-<h3 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h3><ul>
-<li><a href="https://github.com/fouber/page-monitor" target="_blank" rel="noopener">https://github.com/fouber/page-monitor</a></li>
-<li><a href="https://github.com/fouber/pmui" target="_blank" rel="noopener">https://github.com/fouber/pmui</a></li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-server-facebook" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/19/server-facebook/">facebook联合登录</a>
-    </h1>
-  
-
-        
-        <a href="/2016/04/19/server-facebook/" class="archive-article-date">
-  	<time datetime="2016-04-19T08:39:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-04-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="业务流程图"><a href="#业务流程图" class="headerlink" title="业务流程图"></a>业务流程图</h3><p><img src="/img/data/20160419_1703.png" alt=""></p>
-<h3 id="DEMO代码"><a href="#DEMO代码" class="headerlink" title="DEMO代码"></a>DEMO代码</h3><ul>
-<li><a href="https://github.com/firewood1122/code-sample/tree/master/projects/facebook" target="_blank" rel="noopener">https://github.com/firewood1122/code-sample/tree/master/projects/facebook</a></li>
-</ul>
-<h3 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h3><ul>
-<li><a href="https://developers.facebook.com/docs/javascript" target="_blank" rel="noopener">https://developers.facebook.com/docs/javascript</a></li>
-<li><a href="https://developers.facebook.com/docs/facebook-login/web" target="_blank" rel="noopener">https://developers.facebook.com/docs/facebook-login/web</a></li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">基础知识</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
+</nav>
 
 
 
@@ -892,9 +278,21 @@ var _hmt = _hmt || [];
 
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
-    </nav>
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "http://blog.smallpig.cn/2019/02/12/front-rn-app-icon/", 
+    sourceId: "front-rn-app-icon",
+    productKey: "f48e4a1001444478b40c8c6df875b9c6",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+  
+
   
 
 
@@ -917,8 +315,8 @@ var _hmt = _hmt || [];
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

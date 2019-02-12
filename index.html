@@ -150,6 +150,68 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-front-rn-app-icon" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/12/front-rn-app-icon/">React Native修改APP名称及图标</a>
+    </h1>
+  
+
+        
+        <a href="/2019/02/12/front-rn-app-icon/" class="archive-article-date">
+  	<time datetime="2019-02-12T09:06:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="生成图标"><a href="#生成图标" class="headerlink" title="生成图标"></a>生成图标</h3><p>通过<a href="https://icon.wuruihong.com/" target="_blank" rel="noopener">图标工场</a>, 在线生成所有尺寸的应用图标，下载并解压</p>
+<h3 id="Android修改APP名称"><a href="#Android修改APP名称" class="headerlink" title="Android修改APP名称"></a>Android修改APP名称</h3><p>编辑项目文件：android/app/src/main/res/values/strings.xml，修改app_name</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"app_name"</span>&gt;</span>熊猫陈皮<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Android修改APP图标"><a href="#Android修改APP图标" class="headerlink" title="Android修改APP图标"></a>Android修改APP图标</h3><p>使用生成的图标覆盖android/app/src/main/res中的图标目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- res</span><br><span class="line">-- mipmap-hdpi</span><br><span class="line">-- mipmap-ldpi</span><br><span class="line">-- mipmap-mdpi</span><br><span class="line">-- mipmap-xhdpi</span><br><span class="line">-- mipmap-xxhdpi</span><br><span class="line">-- mipmap-xxxhdpi</span><br></pre></td></tr></table></figure>
+<h3 id="IOS修改APP名称"><a href="#IOS修改APP名称" class="headerlink" title="IOS修改APP名称"></a>IOS修改APP名称</h3><p>编加项目文件：ios/{应用目录}/Info.plist，修改CFBundleDisplayName</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">key</span>&gt;</span>CFBundleDisplayName<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">string</span>&gt;</span>熊猫陈皮<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="IOS修改APP图标"><a href="#IOS修改APP图标" class="headerlink" title="IOS修改APP图标"></a>IOS修改APP图标</h3><p>使用生成的图标覆盖ios/{应用目录}/Images.xcassets中的图标目录</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端框架</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-front-npm-publish" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -745,75 +807,6 @@ var _hmt = _hmt || [];
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">基础知识</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-server-node-yield" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/22/server-node-yield/">node异步编程 - Generator入门</a>
-    </h1>
-  
-
-        
-        <a href="/2017/01/22/server-node-yield/" class="archive-article-date">
-  	<time datetime="2017-01-22T01:57:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Generator概念"><a href="#Generator概念" class="headerlink" title="Generator概念"></a>Generator概念</h3><p>Generator函数是ES6提供的一种异步编程解决方案，语法上与传统函数完全不同。<br>从语法上，Generator函数是一个状态机，封装了多个内部状态。执行Generator函<br>数会返回编历器对象，可以依次遍历Generator函数内部的所有状态。</p>
-<h3 id="Generator函数特征"><a href="#Generator函数特征" class="headerlink" title="Generator函数特征"></a>Generator函数特征</h3><ul>
-<li>function关键字与函数名之间有一个星号</li>
-<li>函数体内部使用yeild语句，定义不同的内部状态</li>
-</ul>
-<h3 id="Generator函数执行过程"><a href="#Generator函数执行过程" class="headerlink" title="Generator函数执行过程"></a>Generator函数执行过程</h3><ul>
-<li>调用Generator函数，该函数并不执行，而是返回编历器对象</li>
-<li>调用编历器对象的next方法，内部指针从函数头部或上一次停下来的地方开始执行</li>
-<li>遇到下一个yeild语句（return语句），中断（停止）执行</li>
-</ul>
-<h3 id="yield语句"><a href="#yield语句" class="headerlink" title="yield语句"></a>yield语句</h3><ul>
-<li>遇到yield语句，暂停执行，将紧跟在yield后面的表达式的值，作为返回的对象的value属性值</li>
-</ul>
-        
-          <a class="article-more-a" href="/2017/01/22/server-node-yield/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">服务端框架</a>
         		</li>
       		
 		</ul>

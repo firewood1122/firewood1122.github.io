@@ -150,6 +150,97 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-server-node-phantom" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/17/server-node-phantom/">自动化测试 - phantom.js</a>
+    </h1>
+  
+
+        
+        <a href="/2016/04/17/server-node-phantom/" class="archive-article-date">
+  	<time datetime="2016-04-17T13:09:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-04-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="测试初始化"><a href="#测试初始化" class="headerlink" title="测试初始化"></a>测试初始化</h3><ul>
+<li><p>引入phantom库</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> phantom = <span class="built_in">require</span>(<span class="string">'phantom'</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置测试浏览器代理</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">phantom.create([<span class="string">'--proxy=127.0.0.1:8888'</span>])</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置忽略ssl错误</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--ignore-ssl-errors=yes</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置请求超时</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">page.setting(<span class="string">'resourceTimeout'</span>, <span class="string">'3000'</span>);</span><br><span class="line">page.property(<span class="string">'onResourceTimeout'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">requestData, networkRequest</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'请求超时：'</span> + requestData.url);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置屏幕大小</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">page.property(<span class="string">'viewportSize'</span>, &#123;<span class="attr">width</span>: <span class="number">1980</span>, <span class="attr">height</span>: <span class="number">768</span>&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="请求页面"><a href="#请求页面" class="headerlink" title="请求页面"></a>请求页面</h3><ul>
+<li><p>请求某一页面</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">page.open(<span class="string">'http://www.sample.com'</span>).then(<span class="function"><span class="keyword">function</span>(<span class="params">status</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'请求结果：'</span> + status);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>保存页面为图片</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">page.render(<span class="string">'data/test.png'</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行javascript</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">page.evaluate(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">document</span>.querySelector(<span class="string">'.index-section-header h2'</span>).innerHTML;</span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">html</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(html);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>退出phantom</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ph.exit();</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="调研结论"><a href="#调研结论" class="headerlink" title="调研结论"></a>调研结论</h3><p>Phantom JS是一个服务器端的JavaScript API的WebKit，但如果需要开展前端自动化测试，还需要结合其他测试框架，<br>才能更好的实现自动化测试的目标。</p>
+<h3 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h3><ul>
+<li><a href="https://github.com/amir20/phantomjs-node" target="_blank" rel="noopener">https://github.com/amir20/phantomjs-node</a></li>
+<li><a href="http://www.zhouhua.info/2014/03/19/phantomjs/" target="_blank" rel="noopener">http://www.zhouhua.info/2014/03/19/phantomjs/</a></li>
+<li><a href="http://phantomjs.org/" target="_blank" rel="noopener">http://phantomjs.org/</a></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端框架</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-front-canvas" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -240,30 +331,31 @@ var _hmt = _hmt || [];
 <li><a href="https://mp.weixin.qq.com/" target="_blank" rel="noopener">微信公众平台</a></li>
 <li><a href="https://tools.pingdom.com/" target="_blank" rel="noopener">Pingdom</a></li>
 <li><a href="https://developers.google.com/speed/pagespeed/?hl=zh-CN" target="_blank" rel="noopener">PageSpeed</a></li>
+<li><a href="https://leancloud.cn/" target="_blank" rel="noopener">LeanCloud</a></li>
 </ul>
 <h3 id="效率工具"><a href="#效率工具" class="headerlink" title="效率工具"></a>效率工具</h3><ul>
 <li><a href="https://www.rishiqing.com" target="_blank" rel="noopener">日事清</a></li>
 <li><a href="https://shadowsocks.com/" target="_blank" rel="noopener">Shadowsocks</a></li>
 <li><a href="http://alloyteam.github.io/AlloyDesigner/" target="_blank" rel="noopener">AlloyDesigner</a></li>
 <li><a href="http://www.bejson.com/" target="_blank" rel="noopener">BeJSON</a></li>
-<li><a href="http://compressjpeg.com/" target="_blank" rel="noopener">在线图片压缩</a></li>
+<li><a href="https://tinypng.com/" target="_blank" rel="noopener">在线图片压缩</a></li>
+<li><a href="https://icon.wuruihong.com/" target="_blank" rel="noopener">图标工场</a></li>
 <li><a href="http://www.e4dai.com/tool/CreditCard.asp" target="_blank" rel="noopener">在线信用卡号生成器及验证器</a></li>
 <li><a href="http://unbug.github.io/codelf/#%E8%AE%A1%E7%AE%97%E6%9C%BA" target="_blank" rel="noopener">变量命名翻译</a></li>
 </ul>
 <h3 id="技术框架"><a href="#技术框架" class="headerlink" title="技术框架"></a>技术框架</h3><ul>
 <li><a href="http://es6.ruanyifeng.com/" target="_blank" rel="noopener">ECMAScript 6入门</a></li>
 <li><a href="https://www.npmjs.com/" target="_blank" rel="noopener">NPM</a></li>
-<li><a href="http://npm.taobao.org/" target="_blank" rel="noopener">CNPM</a></li>
 <li><a href="https://github.com/Unitech/pm2" target="_blank" rel="noopener">PM2</a></li>
 <li><a href="http://www.expressjs.com.cn/" target="_blank" rel="noopener">Express</a></li>
 <li><a href="https://thinkjs.org/" target="_blank" rel="noopener">ThinkJS</a></li>
+<li><a href="https://reactnative.cn/" target="_blank" rel="noopener">React Native中文网</a></li>
+<li><a href="https://reactnavigation.org/" target="_blank" rel="noopener">React Navigation</a></li>
 </ul>
 <h3 id="社区网站"><a href="#社区网站" class="headerlink" title="社区网站"></a>社区网站</h3><ul>
-<li><a href="http://www.linkedin.com/?trk=nav_lingying_logo" target="_blank" rel="noopener">领英</a></li>
 <li><a href="http://div.io/" target="_blank" rel="noopener">Div.IO</a></li>
 <li><a href="https://gold.xitu.io/" target="_blank" rel="noopener">掘金</a></li>
 <li><a href="https://75team.com/" target="_blank" rel="noopener">奇舞团博客</a></li>
-<li><a href="https://leancloud.cn/" target="_blank" rel="noopener">LeanCloud</a></li>
 </ul>
 
       
@@ -700,68 +792,6 @@ var _hmt = _hmt || [];
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-server-express-start" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/29/server-express-start/">初始化express框架</a>
-    </h1>
-  
-
-        
-        <a href="/2016/03/29/server-express-start/" class="archive-article-date">
-  	<time datetime="2016-03-29T11:57:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="安装express"><a href="#安装express" class="headerlink" title="安装express"></a>安装express</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install express --save-dev</span><br></pre></td></tr></table></figure>
-<h3 id="安装express-generator"><a href="#安装express-generator" class="headerlink" title="安装express-generator"></a>安装express-generator</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install express-generator -g</span><br></pre></td></tr></table></figure>
-<h3 id="初始化express框架代码"><a href="#初始化express框架代码" class="headerlink" title="初始化express框架代码"></a>初始化express框架代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">express myapp -e</span><br><span class="line">-e 代表使 ejs模板，默认是jade模板</span><br></pre></td></tr></table></figure>
-<h3 id="安装依赖包"><a href="#安装依赖包" class="headerlink" title="安装依赖包"></a>安装依赖包</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
-<h3 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h3><ul>
-<li><a href="http://www.expressjs.com.cn/starter/installing.html" target="_blank" rel="noopener">http://www.expressjs.com.cn/starter/installing.html</a></li>
-<li><a href="https://www.npmjs.com/package/express-generator" target="_blank" rel="noopener">https://www.npmjs.com/package/express-generator</a></li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">服务端框架</a>
         		</li>
       		
 		</ul>
