@@ -150,6 +150,86 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-front-eslint" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/13/front-eslint/">使用commitlint、eslint规范项目代码</a>
+    </h1>
+  
+
+        
+        <a href="/2019/02/13/front-eslint/" class="archive-article-date">
+  	<time datetime="2019-02-13T10:18:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="在项目中使用commitlint"><a href="#在项目中使用commitlint" class="headerlink" title="在项目中使用commitlint"></a>在项目中使用commitlint</h3><ul>
+<li>安装commitlint</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yarn add @commitlint/cli --dev</span><br><span class="line">yarn add @commitlint/config-conventional --dev</span><br><span class="line">yarn add husky --dev</span><br></pre></td></tr></table></figure>
+<ul>
+<li>编辑项目package.json，增加提交代码钩子</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"husky"</span>: &#123;</span><br><span class="line">  <span class="string">"hooks"</span>: &#123;</span><br><span class="line">    <span class="string">"commit-msg"</span>: <span class="string">"commitlint -E HUSKY_GIT_PARAMS"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在项目根目录增加commitlint.config.js，内容如下：</li>
+</ul>
+<p>使用<a href="https://www.conventionalcommits.org/en/v1.0.0-beta.3/" target="_blank" rel="noopener">Conventional Commits</a>校验规则：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123; <span class="attr">extends</span>: [<span class="string">'@commitlint/config-conventional'</span>] &#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="在项目中使用eslint"><a href="#在项目中使用eslint" class="headerlink" title="在项目中使用eslint"></a>在项目中使用eslint</h3><ul>
+<li>安装eslint</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">yarn add eslint --dev</span><br><span class="line">yarn add babel-eslint --dev</span><br><span class="line">yarn add eslint-config-airbnb --dev</span><br><span class="line">yarn add eslint-plugin-import --dev</span><br><span class="line">yarn add eslint-plugin-react --dev</span><br><span class="line">yarn add eslint-plugin-jsx-a11y --dev</span><br></pre></td></tr></table></figure>
+<ul>
+<li>编辑项目package.json，增加提交代码钩子</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"husky"</span>: &#123;</span><br><span class="line">  <span class="string">"hooks"</span>: &#123;</span><br><span class="line">    <span class="string">"pre-commit"</span>: <span class="string">"npm run lint"</span>,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在项目根目录增加.eslintrc，内容如下（可根据自己需求调整）：</li>
+</ul>
+<p>具体配置可参考<a href="https://cn.eslint.org/" target="_blank" rel="noopener">ESLint官网</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="string">"parser"</span>: <span class="string">"babel-eslint"</span>,</span><br><span class="line">  <span class="string">"parserOptions"</span>: &#123;</span><br><span class="line">    <span class="string">"ecmaVersion"</span>: <span class="number">7</span>,</span><br><span class="line">    <span class="string">"sourceType"</span>: <span class="string">"module"</span>,</span><br><span class="line">    <span class="string">"ecmaFeatures"</span>: &#123;</span><br><span class="line">      <span class="string">"jsx"</span>: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"env"</span>: &#123;</span><br><span class="line">    <span class="string">"es6"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">"node"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">"browser"</span>: <span class="literal">true</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"globals"</span>: &#123;</span><br><span class="line">    <span class="string">"document"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">"navigator"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">"window"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">"node"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">"__DEV__"</span>: <span class="literal">true</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"extends"</span>: <span class="string">"airbnb"</span>,</span><br><span class="line">  <span class="string">"plugins"</span>: [</span><br><span class="line">    <span class="string">"react"</span>,</span><br><span class="line">    <span class="string">"jsx-a11y"</span>,</span><br><span class="line">    <span class="string">"import"</span></span><br><span class="line">  ]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端工具</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-front-rn-app-icon" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -762,71 +842,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-front-dramatize-base" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/24/front-dramatize-base/">WEBKIT渲染原理</a>
-    </h1>
-  
-
-        
-        <a href="/2017/01/24/front-dramatize-base/" class="archive-article-date">
-  	<time datetime="2017-01-24T01:07:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="从网页URL到生成DOM树"><a href="#从网页URL到生成DOM树" class="headerlink" title="从网页URL到生成DOM树"></a>从网页URL到生成DOM树</h3><p><img src="/img/data/20170210_1522.jpg" alt=""></p>
-<ul>
-<li>用户输入url，webkit调用资源加载器加载对应页面</li>
-<li>资源加载器调用网络模块建立连接，发送请求，接收回复</li>
-<li>资源加载器接收各种同步（异步）的网页/资源</li>
-<li>网页交给HTML解释器进行解析：bytes -&gt; charaters -&gt; tokens -&gt; nodes -&gt; object model </li>
-<li>遇到js标签，调用js引擎进行解释并执行，可能会修改DOM树结构</li>
-<li>网页中依赖的js资源加载完成后，触发DomContentLoad事件</li>
-</ul>
-        
-          <a class="article-more-a" href="/2017/01/24/front-dramatize-base/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">基础知识</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -920,15 +935,15 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">前端工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">前端框架</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">前端工具</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -150,6 +150,76 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-front-js-value" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/13/front-js-value/">聊一聊javascript的传值方式</a>
+    </h1>
+  
+
+        
+        <a href="/2016/10/13/front-js-value/" class="archive-article-date">
+  	<time datetime="2016-10-13T01:32:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>先看个典型的代码例子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> b = &#123;<span class="attr">test1</span>: <span class="number">1</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> c = &#123;<span class="attr">test2</span>: <span class="number">2</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> test = <span class="function"><span class="keyword">function</span>(<span class="params">a, b, c</span>) </span>&#123;</span><br><span class="line">    a = <span class="number">20</span>;</span><br><span class="line">    b = &#123;<span class="attr">test1</span>: <span class="number">2</span>&#125;;</span><br><span class="line">    c.test2 = <span class="number">3</span>;</span><br><span class="line">&#125;;</span><br><span class="line">test(a, b, c);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line"><span class="built_in">console</span>.log(b);</span><br><span class="line"><span class="built_in">console</span>.log(c);</span><br></pre></td></tr></table></figure></p>
+<p>想一想会输出怎样的结果？<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">10</span></span><br><span class="line">&#123;<span class="attr">test1</span>: <span class="number">1</span>&#125;</span><br><span class="line">&#123;<span class="attr">test2</span>: <span class="number">3</span>&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="常见的传值方式"><a href="#常见的传值方式" class="headerlink" title="常见的传值方式"></a>常见的传值方式</h3><p><strong>按值传递</strong><br>传递对象的值，实参与形参各占一份独立内存，相互不影响</p>
+<p><strong>按引用传递</strong><br>传递对象的引用，实参与形参共享一份内存，相互影响</p>
+<h3 id="Javascript的传值方式"><a href="#Javascript的传值方式" class="headerlink" title="Javascript的传值方式"></a>Javascript的传值方式</h3><p><strong>按共享传值</strong></p>
+<p>怎么理解按共享传值？</p>
+<ul>
+<li><p>对于基础类型，是按值传递，在方法内重新赋值，会指向新的内存</p>
+</li>
+<li><p>对于引用类型，在方法内重新赋值，会指向新的内存，如果修改对象内容，会影响实参的值</p>
+</li>
+</ul>
+<p>从上面的例子可以看出来，按共享传值是不同于按值传递，按引用传递的传值方式。</p>
+<h3 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h3><ul>
+<li><a href="http://dmitrysoshnikov.com/ecmascript/chapter-8-evaluation-strategy/" target="_blank" rel="noopener">http://dmitrysoshnikov.com/ecmascript/chapter-8-evaluation-strategy/</a></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">基础知识</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-server-git-base" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -714,66 +784,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-front-js-utm" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/24/front-js-utm/">js获取GMT时区</a>
-    </h1>
-  
-
-        
-        <a href="/2016/05/24/front-js-utm/" class="archive-article-date">
-  	<time datetime="2016-05-24T01:18:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-05-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="js代码"><a href="#js代码" class="headerlink" title="js代码"></a>js代码</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="keyword">var</span> timezone = date.getTimezoneOffset() / <span class="number">60</span>;</span><br></pre></td></tr></table></figure>
-<h3 id="代码说明"><a href="#代码说明" class="headerlink" title="代码说明"></a>代码说明</h3><ul>
-<li>getTimezoneOffset()方法可返回格林威治时间和本地时间之间的时差，以分钟为单位</li>
-<li>返回之所以以分钟计，而不是以小时计，原因是某些国家所占有的时区甚至不到一个小时的间隔</li>
-<li>由于使用夏令时的惯例，该方法的返回值不是一个常量</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">基础知识</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
@@ -867,15 +877,15 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">前端工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">前端框架</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">前端工具</a>
               </li>
              
               <li class="article-tag-list-item">

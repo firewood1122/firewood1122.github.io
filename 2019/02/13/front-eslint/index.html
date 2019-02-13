@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://blog.smallpig.cn">
-  <title>Archives: 2017/6 | firewood的技术博客</title>
+  <title>使用commitlint、eslint规范项目代码 | firewood的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="firewood的技术博客">
-<meta property="og:url" content="http://blog.smallpig.cn/archives/2017/06/index.html">
+  <meta name="description" content="在项目中使用commitlint 安装commitlint  123yarn add @commitlint/cli --devyarn add @commitlint/config-conventional --devyarn add husky --dev  编辑项目package.json，增加提交代码钩子  12345&quot;husky&quot;: &amp;#123;  &quot;hooks&quot;: &amp;#123;">
+<meta name="keywords" content="前端工具">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用commitlint、eslint规范项目代码">
+<meta property="og:url" content="http://blog.smallpig.cn/2019/02/13/front-eslint/index.html">
 <meta property="og:site_name" content="firewood的技术博客">
+<meta property="og:description" content="在项目中使用commitlint 安装commitlint  123yarn add @commitlint/cli --devyarn add @commitlint/config-conventional --devyarn add husky --dev  编辑项目package.json，增加提交代码钩子  12345&quot;husky&quot;: &amp;#123;  &quot;hooks&quot;: &amp;#123;">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-02-13T10:57:17.826Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="firewood的技术博客">
+<meta name="twitter:title" content="使用commitlint、eslint规范项目代码">
+<meta name="twitter:description" content="在项目中使用commitlint 安装commitlint  123yarn add @commitlint/cli --devyarn add @commitlint/config-conventional --devyarn add husky --dev  编辑项目package.json，增加提交代码钩子  12345&quot;husky&quot;: &amp;#123;  &quot;hooks&quot;: &amp;#123;">
   
     <link rel="alternative" href="/atom.xml" title="firewood的技术博客" type="application/atom+xml">
   
@@ -148,98 +153,165 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-front-eslint" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/15/server-linux-fdisk/" class="archive-article-date">
-  	<time datetime="2017-06-15T06:55:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-15</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/15/server-linux-fdisk/">Linux下添加新分区及挂载</a>
+    <h1 class="article-title" itemprop="name">
+      使用commitlint、eslint规范项目代码
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/02/13/front-eslint/" class="archive-article-date">
+  	<time datetime="2019-02-13T10:18:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="在项目中使用commitlint"><a href="#在项目中使用commitlint" class="headerlink" title="在项目中使用commitlint"></a>在项目中使用commitlint</h3><ul>
+<li>安装commitlint</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yarn add @commitlint/cli --dev</span><br><span class="line">yarn add @commitlint/config-conventional --dev</span><br><span class="line">yarn add husky --dev</span><br></pre></td></tr></table></figure>
+<ul>
+<li>编辑项目package.json，增加提交代码钩子</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"husky"</span>: &#123;</span><br><span class="line">  <span class="string">"hooks"</span>: &#123;</span><br><span class="line">    <span class="string">"commit-msg"</span>: <span class="string">"commitlint -E HUSKY_GIT_PARAMS"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在项目根目录增加commitlint.config.js，内容如下：</li>
+</ul>
+<p>使用<a href="https://www.conventionalcommits.org/en/v1.0.0-beta.3/" target="_blank" rel="noopener">Conventional Commits</a>校验规则：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123; <span class="attr">extends</span>: [<span class="string">'@commitlint/config-conventional'</span>] &#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="在项目中使用eslint"><a href="#在项目中使用eslint" class="headerlink" title="在项目中使用eslint"></a>在项目中使用eslint</h3><ul>
+<li>安装eslint</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">yarn add eslint --dev</span><br><span class="line">yarn add babel-eslint --dev</span><br><span class="line">yarn add eslint-config-airbnb --dev</span><br><span class="line">yarn add eslint-plugin-import --dev</span><br><span class="line">yarn add eslint-plugin-react --dev</span><br><span class="line">yarn add eslint-plugin-jsx-a11y --dev</span><br></pre></td></tr></table></figure>
+<ul>
+<li>编辑项目package.json，增加提交代码钩子</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"husky"</span>: &#123;</span><br><span class="line">  <span class="string">"hooks"</span>: &#123;</span><br><span class="line">    <span class="string">"pre-commit"</span>: <span class="string">"npm run lint"</span>,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在项目根目录增加.eslintrc，内容如下（可根据自己需求调整）：</li>
+</ul>
+<p>具体配置可参考<a href="https://cn.eslint.org/" target="_blank" rel="noopener">ESLint官网</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="string">"parser"</span>: <span class="string">"babel-eslint"</span>,</span><br><span class="line">  <span class="string">"parserOptions"</span>: &#123;</span><br><span class="line">    <span class="string">"ecmaVersion"</span>: <span class="number">7</span>,</span><br><span class="line">    <span class="string">"sourceType"</span>: <span class="string">"module"</span>,</span><br><span class="line">    <span class="string">"ecmaFeatures"</span>: &#123;</span><br><span class="line">      <span class="string">"jsx"</span>: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"env"</span>: &#123;</span><br><span class="line">    <span class="string">"es6"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">"node"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">"browser"</span>: <span class="literal">true</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"globals"</span>: &#123;</span><br><span class="line">    <span class="string">"document"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">"navigator"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">"window"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">"node"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">"__DEV__"</span>: <span class="literal">true</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"extends"</span>: <span class="string">"airbnb"</span>,</span><br><span class="line">  <span class="string">"plugins"</span>: [</span><br><span class="line">    <span class="string">"react"</span>,</span><br><span class="line">    <span class="string">"jsx-a11y"</span>,</span><br><span class="line">    <span class="string">"import"</span></span><br><span class="line">  ]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">服务端工具</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端工具</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://blog.smallpig.cn/2019/02/13/front-eslint/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/02/server-docker-start/" class="archive-article-date">
-  	<time datetime="2017-06-02T01:54:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-02</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/02/server-docker-start/">Docker简介</a>
-    </h1>
+  
+    <a href="/2019/02/12/front-rn-app-icon/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">React Native修改APP名称及图标</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "http://blog.smallpig.cn/2019/02/13/front-eslint/", 
+    sourceId: "front-eslint",
+    productKey: "f48e4a1001444478b40c8c6df875b9c6",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">服务端工具</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -262,8 +334,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
